@@ -30,5 +30,12 @@ export const POST = async (req: NextRequest) => {
         });
     },
   });
-  return new Response(readable, {});
+  return new Response(readable, {
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Access-Control-Allow-Origin": "*",
+      Connection: "keep-alive",
+      "Cache-Control": "no-cache, no-transform",
+    },
+  });
 };
