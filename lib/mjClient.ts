@@ -6,7 +6,7 @@ export const getClient = async () => {
     ChannelId: <string>process.env.CHANNEL_ID,
     SalaiToken: <string>process.env.SALAI_TOKEN,
     Debug: true,
-    Ws: true, //enable ws is required for remix mode (and custom zoom)
+    Ws: process.env.WS === "true", //enable ws is required for remix mode (and custom zoom)
   });
   await client.init();
   return client;
